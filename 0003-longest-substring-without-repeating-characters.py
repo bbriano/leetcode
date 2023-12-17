@@ -1,13 +1,12 @@
 class Solution:
 	def lengthOfLongestSubstring(self, s: str) -> int:
-		maxn = 0
-		n = 0
+		maxn, n = 0, 0
 		idx = [len(s) for _ in range(128)]
 		for i in range(len(s)-1, -1, -1):
 			n = min(idx[ord(s[i])]-i, n+1)
+			idx[ord(s[i])] = i
 			if n > maxn:
 				maxn = n
-			idx[ord(s[i])] = i
 		return maxn
 
 class SolutionSlow:

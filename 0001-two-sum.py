@@ -14,7 +14,8 @@ class Solution:
 					if i != j:
 						return [i, j]
 
-	def twoSumSlow(self, nums: list[int], target: int) -> list[int]:
+class SolutionSlow:
+	def twoSum(self, nums: list[int], target: int) -> list[int]:
 		for i in range(len(nums)):
 			for j in range(len(nums)):
 				if i == j:

@@ -1,18 +1,11 @@
 class Solution:
 	def twoSum(self, nums: list[int], target: int) -> list[int]:
-		idx = dict()
+		idx = {}
 		for i in range(len(nums)):
-			other = target-nums[i]
+			other = target - nums[i]
 			if other in idx:
-				idx[other].append(i)
-			else:
-				idx[other] = [i]
-		for i in range(len(nums)):
-			b = idx.get(nums[i])
-			if b is not None:
-				for j in b:
-					if i != j:
-						return [i, j]
+				return [idx[other], i]
+			idx[nums[i]] = i
 
 class SolutionSlow:
 	def twoSum(self, nums: list[int], target: int) -> list[int]:
